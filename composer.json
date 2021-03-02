@@ -1,0 +1,18 @@
+{
+  "name": "jhuliocastro/alertas",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jhúlio Castro",
+      "email": "jhuliocastro@hotmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Alertas\\": "src"
+    }
+  },
+  "require": {
+    "php": "^7.2"
+  }
+}
