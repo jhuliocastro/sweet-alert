@@ -3,11 +3,11 @@ namespace Alertas;
 
 class Alert{
 
-    public string $title;
-    private string $text;
-    private string $action;
-    private string $type;
-    private string $action2;
+    public $title;
+    private $text;
+    private $action;
+    private $type;
+    private $action2;
 
     private function render(){
         echo "
@@ -60,7 +60,7 @@ class Alert{
         ";
     }
 
-    public static function success(string $title, string $text, string $action){
+    public static function success($title, $text, $action){
         $alerta = new Alert();
         $alerta->type = "success";
         $alerta->title = $title;
@@ -69,7 +69,7 @@ class Alert{
         $alerta->render();
     }
 
-    public static function error(string $title, string $text, string $action){
+    public static function error($title, $text, $action){
         $alerta = new Alert();
         $alerta->type = "error";
         $alerta->title = $title;
@@ -78,7 +78,7 @@ class Alert{
         $alerta->render();
     }
 
-    public static function info(string $title, string $text, string $action){
+    public static function info($title, $text, $action){
         $alerta = new Alert();
         $alerta->type = "info";
         $alerta->title = $title;
@@ -87,7 +87,7 @@ class Alert{
         $alerta->render();
     }
 
-    public static function warning(string $title, string $text, string $action){
+    public static function warning($title, $text, $action){
         $alerta = new Alert();
         $alerta->type = "info";
         $alerta->title = $title;
@@ -96,7 +96,7 @@ class Alert{
         $alerta->render();
     }
 
-    public static function question(string $title, string $text, string $actionYes, string $actionNo){
+    public static function question($title, $text, $actionYes, $actionNo){
         $alerta = new Alert();
         $alerta->type = "info";
         $alerta->title = $title;
