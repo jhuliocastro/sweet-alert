@@ -11,17 +11,28 @@ composer require jhuliocastro/sweet-alert
 
 ## Utilização
 ```php
+#IMPORTE A CLASSE
 use Alertas\Alert;
 
-Alert::success('Título', 'Mensagem', "Endereço Redirecionar");
+#MODO DE SUCESSO
+Alert::success('Título', 'Mensagem', "Ação de Botão");
 
-Alert::error('Título', 'Mensagem', "Endereço Redirecionar");
+#MODO DE ERRO
+Alert::error('Título', 'Mensagem', "Ação de Botão");
 
-Alert::info('Título', 'Mensagem', "Endereço Redirecionar");
+#MODO DE INFORMAÇÕES
+Alert::info('Título', 'Mensagem', "Ação de Botão");
 
-Alert::warning('Título', 'Mensagem', "Endereço Redirecionar");
+#MODO DE ATENÇÃO
+Alert::warning('Título', 'Mensagem', "Ação de Botão");
 
-Alert::success('Título', 'Mensagem', "Endereço Redirecionar");
+#MODO DE PERGUNTA
+Alert::question('Título', 'Mensagem', 'Ação de Botão (Sim)', 'Ação de Botão (Não)');
 
-Alert::question('Título', 'Mensagem', 'Endereço Redirecionar (Sim)', 'Endereço Redirecionar (Não)');
+#NOVO MODO DE CRON
+Alert::cron("Tipo", "Título", "Mensagem", "Ação de Botão", "Tempo para redirecionar");
+```
+```
+O MODO CRON REDIRECIONA O USUÁRIO AUTOMATICAMENTE DE ACORDO COM O TEMPO DEFINIDO!
+ELE ACEITA OS TIPOS "success", "info", "error" e "warning"
 ```
