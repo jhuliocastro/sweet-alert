@@ -8,6 +8,7 @@ class Alert{
     private $action;
     private $type;
     private $action2;
+    private $time;
 
     private function render(){
         echo "
@@ -58,6 +59,38 @@ class Alert{
             </body>
             </html>
         ";
+    }
+
+    public function render3(){
+        header("refresh: $this->time;$this->action");
+        echo "
+            <html>
+            <head>
+                <script src=\"//cdn.jsdelivr.net/npm/sweetalert2@10\"></script>
+            </head>
+            <body>
+                <script>
+                Swal.fire({
+                  icon: '$this->type',
+                  title: '$this->title',
+                  text: '$this->text',
+                }).then(function() {
+                    window.location.href = '$this->action';
+                });
+                </script>
+            </body>
+            </html>
+        ";
+    }
+
+    public static function cron($type, $title, $text, $action, $time){
+        $alerta = new Alert();
+        $alerta->type = $type;
+        $alerta->title = $title;
+        $alerta->text = $text;
+        $alerta->action = $action;
+        $alerta->time = $time;
+        $alerta->render3();
     }
 
     public static function success($title, $text, $action){
