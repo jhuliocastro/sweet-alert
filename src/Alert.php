@@ -9,6 +9,7 @@ class Alert{
     private $type;
     private $action2;
     private $time;
+    private $input;
 
     private function render(){
         echo "
@@ -83,6 +84,35 @@ class Alert{
         ";
     }
 
+    private function render4(){
+        echo "
+            <html>
+            <head>
+                <script src=\"//cdn.jsdelivr.net/npm/sweetalert2@10\"></script>
+            </head>
+            <body>
+                <script>
+                Swal.fire({
+                    title: '$this->title',
+                    input: '$this->input',
+                    showCancelButton: false,                    
+                    cancelButtonText: 'Ok',
+                    inputValidator: (value) => {
+                        if (!value) {
+                            return 'Campo em Branco!'
+                        }
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '$this->action';
+                    }
+                });
+                </script>
+            </body>
+            </html>
+        ";
+    }
+
     public static function cron($type, $title, $text, $action, $time){
         $alerta = new Alert();
         $alerta->type = $type;
@@ -137,5 +167,13 @@ class Alert{
         $alerta->action = $actionYes;
         $alerta->action2 = $actionNo;
         $alerta->render2();
+    }
+
+    public static function input($title, $input, $action){
+        $alerta = new Alert();
+        $alerta->title = $title;
+        $alerta->input = $input;
+        $alerta->action = $action;
+        $alerta->render4();
     }
 }

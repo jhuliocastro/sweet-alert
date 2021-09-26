@@ -31,8 +31,15 @@ Alert::question('Título', 'Mensagem', 'Ação de Botão (Sim)', 'Ação de Bot�
 
 #NOVO MODO DE CRON
 Alert::cron("Tipo", "Título", "Mensagem", "Ação de Botão", "Tempo para redirecionar");
-```
-```
+
 O MODO CRON REDIRECIONA O USUÁRIO AUTOMATICAMENTE DE ACORDO COM O TEMPO DEFINIDO!
 ELE ACEITA OS TIPOS "success", "info", "error" e "warning"
+
+#MODO DE INPUT
+Alert::input("Título", "TIPO DO INPUT", "Ação de Botão");
+
+O INPUT ACEITA OS TIPOS 'text', 'password', 'email'
+```
+```
+
 ```
