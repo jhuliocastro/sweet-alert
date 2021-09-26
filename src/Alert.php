@@ -88,25 +88,19 @@ class Alert{
         echo "
             <html>
             <head>
-                <script src=\"//cdn.jsdelivr.net/npm/sweetalert2@10\"></script>
+                <script src='//cdn.jsdelivr.net/npm/sweetalert2@10'></script>
             </head>
             <body>
                 <script>
-                Swal.fire({
+               Swal.fire({
                     title: '$this->title',
-                    input: '$this->input',
-                    showCancelButton: false,                    
-                    cancelButtonText: 'Ok',
-                    inputValidator: (value) => {
-                        if (!value) {
-                            return 'Campo em Branco!'
-                        }
-                    }
+                    input: 'text',
+                    showCancelButton: false     
                 }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.href = '$this->action';
+                    if (result.value) {
+                        window.location.href = '$this->action/' + result.value;
                     }
-                });
+                });                    
                 </script>
             </body>
             </html>
